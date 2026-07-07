@@ -1,0 +1,4 @@
+# No third-party dependencies.
+# The transformer uses only the Python standard library (csv, json, urllib)
+# plus boto3, which is preinstalled in the AWS Lambda python runtime.
+# The Redshift Data API (boto3 client "redshift-data") means no DB driver needed.

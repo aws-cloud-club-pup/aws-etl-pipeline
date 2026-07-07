@@ -1,0 +1,92 @@
+<mxGraphModel dx="1016" dy="608" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+  <root>
+    <mxCell id="0" />
+    <mxCell id="1" parent="0" />
+
+    <!-- ===================== NODES ===================== -->
+
+    <!-- EventBridge schedule -->
+    <mxCell id="eventbridge" parent="1" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#E7157B;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.eventbridge;" value="EventBridge" vertex="1">
+      <mxGeometry height="78" width="78" x="120" y="80" as="geometry" />
+    </mxCell>
+
+    <!-- Scraper Lambda (EXTRACT) -->
+    <mxCell id="scraper" parent="1" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.lambda;" value="etl-scraper" vertex="1">
+      <mxGeometry height="78" width="78" x="120" y="260" as="geometry" />
+    </mxCell>
+
+    <!-- External APIs container -->
+    <mxCell id="apis" parent="1" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;strokeColor=#5A6C86;fillColor=#F5F5F5;verticalAlign=top;fontColor=#232F3E;fontSize=11;fontStyle=1;align=center;" value="APIs" vertex="1">
+      <mxGeometry height="150" width="220" x="60" y="430" as="geometry" />
+    </mxCell>
+    <mxCell id="api-weather" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#5A6C86;fontSize=11;" value="Open-Meteo weather" vertex="1">
+      <mxGeometry height="34" width="190" x="75" y="458" as="geometry" />
+    </mxCell>
+    <mxCell id="api-air" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#5A6C86;fontSize=11;" value="Open-Meteo air quality" vertex="1">
+      <mxGeometry height="34" width="190" x="75" y="500" as="geometry" />
+    </mxCell>
+    <mxCell id="api-quake" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#5A6C86;fontSize=11;" value="USGS earthquakes" vertex="1">
+      <mxGeometry height="34" width="190" x="75" y="542" as="geometry" />
+    </mxCell>
+
+    <!-- S3 data lake container -->
+    <mxCell id="s3group" parent="1" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;strokeColor=#7AA116;fillColor=#F2F7E7;verticalAlign=top;fontColor=#232F3E;fontSize=11;fontStyle=1;align=center;" value="S3" vertex="1">
+      <mxGeometry height="220" width="240" x="380" y="230" as="geometry" />
+    </mxCell>
+    <mxCell id="s3icon" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#7AA116;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.s3;" value="" vertex="1">
+      <mxGeometry height="48" width="48" x="476" y="250" as="geometry" />
+    </mxCell>
+    <mxCell id="s3raw" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#7AA116;fontSize=10;align=left;spacingLeft=6;" value="raw/weather/&#10;raw/air_quality/&#10;raw/earthquakes/" vertex="1">
+      <mxGeometry height="58" width="210" x="395" y="308" as="geometry" />
+    </mxCell>
+    <mxCell id="s3processed" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#7AA116;fontSize=10;align=left;spacingLeft=6;" value="processed/weather/&#10;processed/air_quality/&#10;processed/earthquakes/" vertex="1">
+      <mxGeometry height="58" width="210" x="395" y="378" as="geometry" />
+    </mxCell>
+
+    <!-- Transformer Lambda (TRANSFORM + LOAD) -->
+    <mxCell id="transformer" parent="1" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.lambda;" value="etl-transformer" vertex="1">
+      <mxGeometry height="78" width="78" x="410" y="560" as="geometry" />
+    </mxCell>
+
+    <!-- Redshift -->
+    <mxCell id="redshift" parent="1" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#C925D1;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.redshift;" value="Redshift" vertex="1">
+      <mxGeometry height="78" width="78" x="800" y="300" as="geometry" />
+    </mxCell>
+    <mxCell id="tables" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#C925D1;fontSize=10;align=left;spacingLeft=6;" value="public.weather&#10;public.air_quality&#10;public.earthquakes" vertex="1">
+      <mxGeometry height="58" width="180" x="750" y="400" as="geometry" />
+    </mxCell>
+
+    <!-- ===================== EDGES ===================== -->
+
+    <!-- EventBridge -> scraper -->
+    <mxCell id="e1" parent="1" source="eventbridge" target="scraper" edge="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#232F3E;fontSize=10;" value="">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- scraper -> APIs -->
+    <mxCell id="e2" parent="1" source="scraper" target="apis" edge="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;startArrow=none;strokeColor=#232F3E;fontSize=10;" value="">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- scraper -> S3 raw (enters left edge of raw box) -->
+    <mxCell id="e3" parent="1" source="scraper" target="s3raw" edge="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#232F3E;fontSize=10;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" value="">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- S3 raw -> transformer (exits left of raw, enters top of transformer) -->
+    <mxCell id="e4" parent="1" source="s3raw" target="transformer" edge="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#232F3E;fontSize=10;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" value="">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- transformer -> S3 processed (exits right of transformer, enters bottom of processed) -->
+    <mxCell id="e5" parent="1" source="transformer" target="s3processed" edge="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#232F3E;fontSize=10;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" value="">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- transformer -> Redshift (COPY; exits right, enters bottom of Redshift) -->
+    <mxCell id="e6" parent="1" source="transformer" target="redshift" edge="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#232F3E;fontSize=10;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" value="">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+  </root>
+</mxGraphModel>

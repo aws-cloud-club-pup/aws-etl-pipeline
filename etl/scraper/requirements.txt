@@ -1,0 +1,4 @@
+# No third-party dependencies.
+# The scraper uses only the Python standard library (urllib, csv, json) plus
+# boto3, which is preinstalled in the AWS Lambda python runtime.
+# This file exists so participants know nothing extra needs packaging.
